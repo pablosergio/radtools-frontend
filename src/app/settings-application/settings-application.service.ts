@@ -12,8 +12,8 @@ export class SettingsApplicationService {
 
   constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
-  getSettingsApplication(): Observable<SettingsApplication>{
-    return this.http.get(this.config.getEndpoint('applicationSettings'))
+  getSettingsApplication(): Observable<SettingsApplication[]>{
+    return this.http.get(this.config.getEndpoint('applicationSettings', null))
   					.map(this.extractData)
   					.catch(this.handleError);
   }
