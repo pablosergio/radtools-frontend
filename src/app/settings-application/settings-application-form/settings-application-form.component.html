@@ -1,0 +1,38 @@
+<form (ngSubmit)="register()" [formGroup]="settingsApplicationForm">
+	<div class="form-group">
+		<label class="center-block">Application Name
+			<input class="form-control" formControlName="name_application">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Application Path
+			<input class="form-control" formControlName="path_application">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Token Secret
+			<input type="password" class="form-control" formControlName="token_secret">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Host
+			<input class="form-control" formControlName="host">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Port
+			<input class="form-control" formControlName="port">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Database
+			<input class="form-control" formControlName="database">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Schema
+			<input class="form-control" formControlName="schema">
+		</label>	
+	</div>
+	<button type="submit">Register</button>
+</form>

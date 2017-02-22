@@ -1,0 +1,8 @@
+{
+    "host": "http://localhost:8081",
+     "endpoints": {
+     	"applicationSettings": {
+     		"proxyId": "/api/application/applications"
+     	}
+     }
+}
