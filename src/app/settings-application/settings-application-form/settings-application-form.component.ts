@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { SettingsApplication } from '../settings-application';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { slideInDownAnimation } from '../../animations';
 import { SettingsApplicationService } from '../settings-application.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -8,12 +9,16 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'rt-settings-application-form',
   templateUrl: './settings-application-form.component.html',
+  animations: [ slideInDownAnimation ],
   styleUrls: ['./settings-application-form.component.css'],
   moduleId: module.id
 })
 export class SettingsApplicationFormComponent implements OnInit {
+  /*@HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';*/
   
-   errorMessage: string;
+  errorMessage: string;
   //settingsApplicationForm: FormGroup;	
   application: SettingsApplication = new SettingsApplication();
   //application: SettingsApplication;

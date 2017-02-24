@@ -19,10 +19,16 @@ export class SettingsApplicationGridComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .switchMap((params: Params) => {
-        this.selectedId = +params['id'];
-        this.getSettingsAplications();
-      });  
+      .switchMap((params: Params) =>  {
+          this.selectedId = +params['id'];
+           return this.settingsApplicationService.getSettingsApplications()
+      })
+      .subscribe(
+          applications => this.applications = applications,
+          error =>  this.errorMessage = <any>error
+      );  
+
+     
   	
   }
 
