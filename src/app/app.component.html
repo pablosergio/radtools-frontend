@@ -1,4 +1,6 @@
-<h1>
-  {{title}}
-</h1>
-<rt-settings-application></rt-settings-application>
+<h1>{{title}}</h1>
+    <nav>
+      <a routerLink="/applications" routerLinkActive="active">Applications</a>
+      <a routerLink="/help" routerLinkActive="active">Help</a>
+    </nav>
+    <router-outlet></router-outlet>

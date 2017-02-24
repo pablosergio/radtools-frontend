@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsApplication } from '../settings-application';
 import { SettingsApplicationService } from '../settings-application.service';
-//import { AppConfig } from '../../config/app.config';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'rt-settings-application-grid',
@@ -11,17 +13,32 @@ import { SettingsApplicationService } from '../settings-application.service';
 export class SettingsApplicationGridComponent implements OnInit {
   errorMessage: string;
   applications: SettingsApplication[];
-  constructor(private settingsApplicationService: SettingsApplicationService) {  }
+  private selectedId: number;
+  
+  constructor(private route: ActivatedRoute, private router: Router, private settingsApplicationService: SettingsApplicationService) {  }
 
   ngOnInit() {
-  	this.getSettingsAplications();
+    this.route.params
+      .switchMap((params: Params) => {
+        this.selectedId = +params['id'];
+        this.getSettingsAplications();
+      });  
+  	
   }
 
   getSettingsAplications(){
-  	this.settingsApplicationService.getSettingsApplication()
+  	this.settingsApplicationService.getSettingsApplications()
                    .subscribe(
                      applications => this.applications = applications,
                      error =>  this.errorMessage = <any>error);
+  }
+
+   onSelect(application: SettingsApplication) {
+    this.router.navigate(['/applications', application.application_id]);
+  }
+
+  isSelected(applications: SettingsApplication) { 
+    return applications.application_id === this.selectedId; 
   }
 
 }

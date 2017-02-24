@@ -1,3 +1,28 @@
-<div *ngFor = "let application of applications">
+<!---<div *ngFor = "let application of applications">
 	{{ application.name_application }} - {{ application.path_application }} - {{ application.host }} - {{ application.port }} 
+</div> -->
+<div class="col-md-12">
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr>
+				<th><i class="fa fa-file-text-o"></i>&#32;<i class="fa fa-trash"></i>&#32;<i class="fa fa-pencil"></i></th>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Host</th>
+                <th>Port</th>
+                <th>DataBase</th>
+                <th>Schema</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor= "let application of applications" (click)="onSelect(application)" [class.selected]="isSelected(application)">
+              <td><a href="" class="fa fa-file-text-o" ng-click="historyRecord($index, data, $event)"></a>&#32;<a href="" class="fa fa-trash" ng-click="removeRecord($index, data, $event)"></a>&#32;<a href="" class="fa fa-pencil" ng-click="editRecord($index, data, $event)"></a></td>
+              <td>{{application.name_application}}</td>
+              <td>{{application.path_application}}</td>
+              <td>{{application.host}}</td>
+              <td>{{application.port}}</td>
+              <td>{{application.database}}</td>
+              <td>{{application.schema}}</td>
+    	</tbody>
+	</table>	
 </div>

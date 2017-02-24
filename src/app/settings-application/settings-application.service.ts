@@ -12,16 +12,26 @@ export class SettingsApplicationService {
 
   constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
-  getSettingsApplication(): Observable<SettingsApplication[]>{
+  getSettingsApplications(): Observable<SettingsApplication[]>{
     return this.http.get(this.config.getEndpoint('applicationSettings', null))
   					.map(this.extractData)
   					.catch(this.handleError);
   }
 
+  getSettingsApplication(id: number | string): Observable<SettingsApplication> {
+    return this.http.get(this.config.getEndpoint('applicationSettings', null) + '/' +id)
+            .map(this.extractOneData)
+            .catch(this.handlerError);
+  }
 
   private extractData(res: Response) {
     let body = res.json();
     return body.rows || { };
+  }
+
+  private extractOneData(res: Response) {
+    let body = res.json();
+    return body.data || { };
   }
 
   private handleError (error: Response | any) {
