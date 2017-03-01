@@ -1,0 +1,12 @@
+.table th, td {
+  text-align: center;
+}
+
+.table > tbody > tr.selected td {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.table > tbody > tr.selected:hover td {
+  background-color: #BBD8DC;
+}
