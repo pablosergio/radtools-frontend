@@ -14,9 +14,9 @@ import 'rxjs/add/operator/switchMap';
   moduleId: module.id
 })
 export class SettingsApplicationFormComponent implements OnInit {
-  /*@HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
-  @HostBinding('style.position')  position = 'absolute';*/
+  @HostBinding('style.position')  position = 'absolute';
   
   errorMessage: string;
   //settingsApplicationForm: FormGroup;	
@@ -59,8 +59,7 @@ export class SettingsApplicationFormComponent implements OnInit {
   }
 
   gotoApplications() {
-	 //console.log(this.settingsApplicationForm.value);
-    let application_id = this.application ? this.application.application_id : null;
+	  let application_id = this.application ? this.application.application_id : null;
     // Pass along the application id if available
     // so that the applications-grid component can select that application.
     // Include a junk 'foo' property for fun.

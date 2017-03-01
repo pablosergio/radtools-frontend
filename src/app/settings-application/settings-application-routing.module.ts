@@ -6,7 +6,7 @@ import { SettingsApplicationFormComponent }   from './settings-application-form/
 
 const settingsApplicationRoutes: Routes = [
   { path: 'applications', component: SettingsApplicationComponent },
-  { path: 'applications/:id', component: SettingsApplicationFormComponent },
+  { path: 'application/:id', component: SettingsApplicationFormComponent },
 ];
 @NgModule({
   imports: [

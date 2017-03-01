@@ -32,15 +32,15 @@ export class SettingsApplicationGridComponent implements OnInit {
   	
   }
 
-  getSettingsAplications(){
+  /*getSettingsAplications(){
   	this.settingsApplicationService.getSettingsApplications()
                    .subscribe(
                      applications => this.applications = applications,
                      error =>  this.errorMessage = <any>error);
-  }
+  }*/
 
    onSelect(application: SettingsApplication) {
-    this.router.navigate(['/applications', application.application_id]);
+    this.router.navigate(['/application', application.application_id]);
   }
 
   isSelected(applications: SettingsApplication) { 
