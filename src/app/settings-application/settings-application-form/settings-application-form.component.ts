@@ -14,9 +14,9 @@ import 'rxjs/add/operator/switchMap';
   moduleId: module.id
 })
 export class SettingsApplicationFormComponent implements OnInit {
-  /*@HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
-  @HostBinding('style.position')  position = 'absolute';*/
+  @HostBinding('style.position')  position = 'absolute';
   
   errorMessage: string;
   //settingsApplicationForm: FormGroup;	

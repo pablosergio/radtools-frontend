@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 
 import { SettingsApplicationModule } from './settings-application/settings-application.module';
+import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
+
 import { AppComponent } from './app.component';
 import { LoggerService } from './logger.service';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
@@ -22,6 +24,7 @@ import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-foun
     FormsModule,
     HttpModule,
     SettingsApplicationModule, /* el orden de los import es importante */
+    SettingApplicationsModule,
     AppRoutingModule
   ],
   providers: [

@@ -4,9 +4,21 @@ import { RouterModule, Routes }  from '@angular/router';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
 
 const appRoutes: Routes = [
-  //{ path: 'applications', component: SettingsApplicationComponent },
-  { path: '',   redirectTo: '/applications', pathMatch: 'full' },
-  { path: '**', component: AppPageNotFoundComponent }
+  
+  {
+    path: 'setting-applications',
+    loadChildren: 'app/setting-applications/setting-applications.module#SettingApplicationsModule',
+    data: { preload: true }
+  },
+  { 
+  	path: '',   
+  	redirectTo: '/applications', 
+  	pathMatch: 'full' 
+  },
+  { 
+  	path: '**', 
+  	component: AppPageNotFoundComponent 
+  }
 ];
 @NgModule({
   imports: [
