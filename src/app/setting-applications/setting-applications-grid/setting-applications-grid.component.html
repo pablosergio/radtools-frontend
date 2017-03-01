@@ -13,7 +13,7 @@
 		</thead>
 		<tbody>
 			<tr *ngFor= "let application of applications" [class.selected]="isSelected(application)">
-              <td><a href="" class="fa fa-file-text-o" ng-click="historyRecord($index, data, $event)"></a>&#32;<a href="" class="fa fa-trash" ng-click="removeRecord($index, data, $event)"></a>&#32;<a [routerLink]="[application.application_id]" class="fa fa-pencil"></a></td>
+              <td><a href="" class="fa fa-file-text-o" ng-click="historyRecord($index, data, $event)"></a>&#32;<a href="" class="fa fa-trash" ng-click="removeRecord($index, data, $event)"></a>&#32;<a [routerLink] = "[application.application_id]" class="fa fa-pencil" (click) = "onSelect(application)"></a></td>
               <td>{{application.name_application}}</td>
               <td>{{application.path_application}}</td>
               <td>{{application.host}}</td>

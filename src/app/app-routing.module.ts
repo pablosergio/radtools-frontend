@@ -5,11 +5,11 @@ import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-foun
 
 const appRoutes: Routes = [
   
-  {
+  /*{
     path: 'setting-applications',
     loadChildren: 'app/setting-applications/setting-applications.module#SettingApplicationsModule',
     data: { preload: true }
-  },
+  },*/
   { 
   	path: '',   
   	redirectTo: '/applications', 
