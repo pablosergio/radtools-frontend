@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { Router, ActivatedRoute, CanActivate } from '@angular/router';
 
 @Injectable()
 export class AuthGuardService  implements CanActivate {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   canActivate(){
   	console.log('AuthGuard#canActivate called');
-  	 //this.router.navigate(['/contact'], { outlets: { popup: ['compose'] } });
+  	this.router.navigate([{ outlets: { popup: ['compose'] } }], { relativeTo: this.route }
   }
 }
 

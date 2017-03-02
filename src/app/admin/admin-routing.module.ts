@@ -3,7 +3,7 @@ import { RouterModule, Routes }  from '@angular/router';
 import { AdminComponent }   from './admin.component';
 import { ManageApplicationsComponent }   from './manage-applications/manage-applications.component';
 import { AdminDashboardComponent }   from './admin-dashboard/admin-dashboard.component';
-import { AuthGuardService }                from '../auth-guard.service';
+import { AuthGuardService }  from '../auth/auth-guard.service';
 
 const adminRoutes: Routes = [
   {

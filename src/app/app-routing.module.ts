@@ -2,6 +2,7 @@ import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 //import { SettingsApplicationComponent }   from './settings-application/settings-application.component';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   { 
   	path: '',   
   	redirectTo: '/applications', 
-  	pathMatch: 'full' 
+  	pathMatch: 'full',
+  	canActivate: [AuthGuardService],
   },
   { 
   	path: '**', 

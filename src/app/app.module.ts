@@ -6,22 +6,25 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 
+
 import { SettingsApplicationModule } from './settings-application/settings-application.module';
 import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
 
+import { MenuComponent } from './menu/menu.component';
 
 import { AppComponent } from './app.component';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
 
 import { LoggerService } from './logger.service';
-import { AuthGuardService } from './auth-guard.service';
-
+import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
   declarations: [
+    MenuComponent,
     AppComponent,
     AppPageNotFoundComponent,
   ],
@@ -40,7 +43,8 @@ import { AuthGuardService } from './auth-guard.service';
     AppConfig,
     //{ provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true }
     { provide: APP_INITIALIZER, useFactory: loadConfig, deps: [AppConfig], multi: true },
-    AuthGuardService
+    AuthGuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,10 +4,12 @@ import { SettingApplicationsComponent }   from './setting-applications.component
 import { SettingApplicationsGridComponent }   from './setting-applications-grid/setting-applications-grid.component';
 import { SettingApplicationsFormComponent }   from './setting-applications-form/setting-applications-form.component';
 import { HomeComponent }   from './home/home.component';
+import { AuthGuardService } from '../auth/auth-guard.service';
 
 const settingApplicationsRoutes: Routes = [
   {
     path: 'setting-applications',
+    canActivate: [AuthGuardService],
     component: SettingApplicationsComponent,
     children: [
       {
