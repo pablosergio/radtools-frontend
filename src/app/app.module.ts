@@ -11,6 +11,7 @@ import { SettingsApplicationModule } from './settings-application/settings-appli
 import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
+import { LoginModule } from './login/login.module';
 
 import { MenuComponent } from './menu/menu.component';
 
@@ -36,6 +37,7 @@ import { AuthService } from './auth/auth.service';
     SettingApplicationsModule,
     ComposeMessageModule,
     AdminModule,
+    LoginModule,
     AppRoutingModule
   ],
   providers: [
