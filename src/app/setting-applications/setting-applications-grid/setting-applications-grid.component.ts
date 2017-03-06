@@ -19,7 +19,13 @@ export class SettingApplicationsGridComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService) {  }
 
   ngOnInit() {
-    this.route.params
+    this.route.data
+      .subscribe((data: { settingApplicationsGrid: SettingApplications[]}) => {
+          this.applications = data.settingApplicationsGrid,
+          error =>  this.errorMessage = <any>error
+    });
+
+    /*this.route.params
       .switchMap((params: Params) =>  {
           this.selectedId = +params['id'];
            return this.service.getSettingApplications()
@@ -27,7 +33,7 @@ export class SettingApplicationsGridComponent implements OnInit {
       .subscribe(
           applications => this.applications = applications,
           error =>  this.errorMessage = <any>error
-      );
+      ); */
   }
 
   onSelect(application: SettingApplications) {
