@@ -1,14 +1,19 @@
 import { Injectable }       from '@angular/core';
-import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, CanActivateChild, CanLoad, Router, Route, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService }  from './auth.service';
 import { AppConfig } from '../config/app.config';
 import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
-export class AuthGuardService implements CanActivate, CanActivateChild {
+export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad {
   jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute, private config: AppConfig) {}
+
+  canLoad(route: Route): boolean {
+    let url = `/${route.path}`;
+    return this.checkLogin(url);
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;

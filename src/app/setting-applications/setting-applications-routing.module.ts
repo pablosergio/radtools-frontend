@@ -9,7 +9,7 @@ import { SettingApplicationsGridResolver }   from './setting-applications-grid/s
 
 const settingApplicationsRoutes: Routes = [
   {
-    path: 'setting-applications',
+    path: '',
     canActivate: [AuthGuardService],
     resolve: {
        settingApplicationsGrid: SettingApplicationsGridResolver

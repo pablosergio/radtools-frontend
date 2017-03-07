@@ -8,7 +8,7 @@ import { HttpModule } from '@angular/http';
 
 
 import { SettingsApplicationModule } from './settings-application/settings-application.module';
-import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
+//import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
@@ -34,7 +34,7 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     HttpModule,
     SettingsApplicationModule, /* el orden de los import es importante */
-    SettingApplicationsModule,
+    //SettingApplicationsModule,
     ComposeMessageModule,
     AdminModule,
     LoginModule,
