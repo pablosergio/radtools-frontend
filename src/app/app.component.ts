@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DropdownModule } from "ngx-dropdown";
 
 @Component({
   selector: 'rt-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rt works!';
+  title = 'rt works!!';
 }

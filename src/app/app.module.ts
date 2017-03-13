@@ -12,6 +12,7 @@ import { SettingsApplicationModule } from './settings-application/settings-appli
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
+import { DropdownModule } from "ngx-dropdown";
 
 import { MenuComponent } from './menu/menu.component';
 
@@ -21,6 +22,7 @@ import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-foun
 import { LoggerService } from './logger.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { MenuDirective } from './menu/menu.directive';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { AuthService } from './auth/auth.service';
     MenuComponent,
     AppComponent,
     AppPageNotFoundComponent,
+    MenuDirective,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { AuthService } from './auth/auth.service';
     ComposeMessageModule,
     AdminModule,
     LoginModule,
+    DropdownModule,
     AppRoutingModule
   ],
   providers: [
