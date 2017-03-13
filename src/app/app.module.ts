@@ -15,14 +15,14 @@ import { LoginModule } from './login/login.module';
 import { DropdownModule } from "ngx-dropdown";
 
 import { MenuComponent } from './menu/menu.component';
+import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
 
 import { AppComponent } from './app.component';
-import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
 
 import { LoggerService } from './logger.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
-import { MenuDirective } from './menu/menu.directive';
+//import { MenuDirective } from './menu/menu.directive';
 
 
 @NgModule({
@@ -30,18 +30,19 @@ import { MenuDirective } from './menu/menu.directive';
     MenuComponent,
     AppComponent,
     AppPageNotFoundComponent,
-    MenuDirective,
+    //MenuDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    DropdownModule,
+    
     SettingsApplicationModule, /* el orden de los import es importante */
     //SettingApplicationsModule,
     ComposeMessageModule,
     AdminModule,
     LoginModule,
-    DropdownModule,
     AppRoutingModule
   ],
   providers: [

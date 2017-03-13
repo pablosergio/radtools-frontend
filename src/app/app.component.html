@@ -1,22 +1,11 @@
- <div class='btn-info'>
- 	<div class="btn-group" dropdown>
-        <button  type="button" class="btn btn-info dropdown-toggle" dropdown-open>Administracion <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-list">
-            <li role="menuitem"><a class="dropdown-item" routerLink="/setting-applications" routerLinkActive="active">Setting Applications</a></li>
-            <li role="menuitem"><a class="dropdown-item" routerLink="/applications" routerLinkActive="active">Applications</a></li>
-            <li role="menuitem"><a class="dropdown-item" routerLink="/admin" routerLinkActive="active">Admin</a></li>
-        </ul>
-    </div>
- </div>
 
-<h1 [textContent] = "title"></h1>
-<nav rtMenu></nav>
-    <nav>
+   <!-- <nav>
       <a routerLink="/setting-applications" routerLinkActive="active">Setting Applications</a>
       <a routerLink="/applications" routerLinkActive="active">Applications</a>
       <a routerLink="/admin" routerLinkActive="active">Admin</a>
       <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-    </nav>
+    </nav> -->
+    <rt-menu></rt-menu>
     <router-outlet></router-outlet>
     <router-outlet name="popup"></router-outlet> 
 

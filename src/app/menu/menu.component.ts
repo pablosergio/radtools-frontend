@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DropdownModule } from "ngx-dropdown";
 
 @Component({
   selector: 'rt-menu',
