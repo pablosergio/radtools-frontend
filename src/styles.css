@@ -11,7 +11,7 @@ h2, h3 {
   font-weight: lighter;
 }
 body {
-  margin: 2em;
+  /*margin: 2em;  para que la barra de menu no tenga margen */ 
 }
 body, input[text], button {
   color: #888;

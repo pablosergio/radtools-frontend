@@ -68,7 +68,19 @@ export class MenuDirective {
       recursivo(data, tagUl, 1);
 
 
+       //let div = document.createElement("div");
+       //div.setAttribute("data-toggle", "dropdown");
+
     }
 
 }
 
+/*<div class="btn-group" dropdown>
+        <button  type="button" class="btn btn-info dropdown-toggle" dropdown-open>Administracion <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-list">
+            <li role="menuitem"><a class="dropdown-item" routerLink="/setting-applications" routerLinkActive="active">Setting Applications</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="/applications" routerLinkActive="active">Applications</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="/admin" routerLinkActive="active">Admin</a></li>
+        </ul>
+    </div>
+    */

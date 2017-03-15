@@ -7,14 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 
 
-import { SettingsApplicationModule } from './settings-application/settings-application.module';
+//import { SettingsApplicationModule } from './settings-application/settings-application.module';
 //import { SettingApplicationsModule } from './setting-applications/setting-applications.module';
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
 import { DropdownModule } from "ngx-dropdown";
 
-import { MenuComponent } from './menu/menu.component';
+//import { MenuComponent } from './menu/menu.component';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
 
 import { AppComponent } from './app.component';
@@ -22,14 +22,16 @@ import { AppComponent } from './app.component';
 import { LoggerService } from './logger.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
+//import { DialogComponent } from './dialog/dialog.component';
 //import { MenuDirective } from './menu/menu.directive';
 
 
 @NgModule({
   declarations: [
-    MenuComponent,
+    //MenuComponent,
     AppComponent,
     AppPageNotFoundComponent,
+    //DialogComponent,
     //MenuDirective,
   ],
   imports: [
@@ -38,7 +40,7 @@ import { AuthService } from './auth/auth.service';
     HttpModule,
     DropdownModule,
     
-    SettingsApplicationModule, /* el orden de los import es importante */
+    //SettingsApplicationModule, /* el orden de los import es importante */
     //SettingApplicationsModule,
     ComposeMessageModule,
     AdminModule,

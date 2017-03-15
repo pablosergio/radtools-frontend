@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+    showDialog = true;
     model: any = {};
     loading = false;
     error = '';
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
  
     login() {
         this.loading = true;
+        console.log('autenticar');
         /*this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(result => {
                 if (result === true) {
