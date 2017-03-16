@@ -21,7 +21,7 @@ export class SettingApplicationsService {
   getSettingApplication(id: number | string): Observable<SettingApplications> {
     return this.http.get(this.config.getEndpoint('applicationSettings', null) + '/' +id)
             .map(this.extractOneData)
-            .catch(this.handlerError);
+            .catch(this.handleError);
   }
 
   private extractData(res: Response) {

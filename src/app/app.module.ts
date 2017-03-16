@@ -12,7 +12,7 @@ import { HttpModule } from '@angular/http';
 import { ComposeMessageModule } from './compose-message/compose-message.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginModule } from './login/login.module';
-import { DropdownModule } from "ngx-dropdown";
+//import { DropdownModule } from "ngx-dropdown";
 
 //import { MenuComponent } from './menu/menu.component';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
@@ -38,7 +38,7 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    DropdownModule,
+    //DropdownModule,
     
     //SettingsApplicationModule, /* el orden de los import es importante */
     //SettingApplicationsModule,

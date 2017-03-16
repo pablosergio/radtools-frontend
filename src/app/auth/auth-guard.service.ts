@@ -1,4 +1,4 @@
-import { Injectable }       from '@angular/core';
+import { Injectable }  from '@angular/core';
 import { CanActivate, CanActivateChild, CanLoad, Router, Route, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService }  from './auth.service';
 import { AppConfig } from '../config/app.config';
@@ -32,8 +32,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
    		 	return true;
    		 }
    }
-    //if (this.authService.isLoggedIn) { return true; }
-
+    
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
 

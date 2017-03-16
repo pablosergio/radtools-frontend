@@ -1,11 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
-import { SettingApplicationsComponent }   from './setting-applications.component';
-import { HomeComponent }   from './home/home.component';
+import { MenuComponent } from './menu.component';
+
 import { AuthGuardService } from '../auth/auth-guard.service';
 
 const menuRoutes: Routes = [
-  {
+   {
+    path: '',
+    /*canActivate: [AuthGuardService],
+    resolve: {
+       settingApplicationsGrid: SettingApplicationsGridResolver
+    },*/
+    component: MenuComponent,
+    children: [
+      {
+        path: 'setting-applications',
+        loadChildren: 'app/setting-applications/setting-applications.module#SettingApplicationsModule',
+        
+      }
+    ]
   }
 ];
 

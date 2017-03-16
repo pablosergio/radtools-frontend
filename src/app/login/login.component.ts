@@ -26,17 +26,17 @@ export class LoginComponent implements OnInit {
     login() {
         this.loading = true;
         console.log('autenticar');
-        /*this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(result => {
-                if (result === true) {
-                    // login successful
+        this.authenticationService.login(this.model.username, this.model.password)
+             .subscribe(result => {
+                if (result.success === true) {
+                    localStorage.setItem('token', result.token);
                     this.router.navigate(['/']);
                 } else {
                     // login failed
                     this.error = 'Username or password is incorrect';
                     this.loading = false;
                 }
-            });*/
+            });
     }
 
 }

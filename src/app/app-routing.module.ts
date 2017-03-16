@@ -8,7 +8,8 @@ const appRoutes: Routes = [
   {
     path: 'menu',
     loadChildren: 'app/menu/menu.module#MenuModule',
-    canLoad: [AuthGuardService]
+    //canLoad: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
 
   /*{
