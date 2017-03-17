@@ -1,3 +1,6 @@
+/* https://coryrylan.com/blog/build-a-angular-modal-dialog-with-angular-animate
+https://embed.plnkr.co/AuFMJVHpk9OaLr62puS1/ */
+
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter, trigger, state, style, animate, transition } from '@angular/core';
 
 @Component({

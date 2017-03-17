@@ -4,8 +4,19 @@
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-list">
             <li role="menuitem"><a class="dropdown-item" routerLink="/menu/setting-applications" routerLinkActive="active">Setting Applications</a></li>
             <li role="menuitem"><a class="dropdown-item" routerLink="/applications" routerLinkActive="active">Applications</a></li>
-            <li role="menuitem"><a class="dropdown-item" routerLink="/admin" routerLinkActive="active">Admin</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="/menu/admin" routerLinkActive="active">Admin</a></li>
         </ul>
+    </div>
+    <div class="btn-group btn-right">
+        <button  type="button" class="btn btn-info" (click)= logout()><i class="fa fa-power-off icon-menu" aria-hidden="true"></i>Salir</button>
+    </div>
+    <div class="btn-group btn-right">
+        <button  type="button" class="btn btn-info"><i class="fa fa-user-circle icon-menu" aria-hidden="true"></i>Usuario</button>
+        <!--<ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-list">
+            <li role="menuitem"><a class="dropdown-item" routerLink="/menu/setting-applications" routerLinkActive="active">Setting Applications</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="/applications" routerLinkActive="active">Applications</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="/menu/admin" routerLinkActive="active">Admin</a></li>
+        </ul> -->
     </div>
 </div>
 
