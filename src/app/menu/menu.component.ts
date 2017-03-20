@@ -17,4 +17,8 @@ export class MenuComponent implements OnInit {
   logout() {
   	alert('salir');
   }
+
+  getUser() {
+  	return "Pablo Alvarado G.";
+  }
 }

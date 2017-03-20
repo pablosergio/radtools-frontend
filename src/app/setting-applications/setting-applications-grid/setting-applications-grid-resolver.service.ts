@@ -9,7 +9,6 @@ export class SettingApplicationsGridResolver implements Resolve<SettingApplicati
   constructor(private cs: SettingApplicationsService, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SettingApplications[]> {
-    console.log('resolve');
     //let id = route.params['id'];
     return this.cs.getSettingApplications()
   }
