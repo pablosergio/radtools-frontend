@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { SettingApplications } from '../setting-applications';
 import { SettingApplicationsService } from '../setting-applications.service';
+import { LoaderService } from '../../menu/loader.service';
 
 @Component({
   selector: 'rt-setting-applications-grid',
@@ -16,9 +17,10 @@ export class SettingApplicationsGridComponent implements OnInit {
   applications: SettingApplications[];
   private selectedId: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService) {  }
+  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService, private loaderService: LoaderService) {  }
 
   ngOnInit() {
+    this.loaderService.displayLoader(true);
     this.route.data
       .subscribe((data: { settingApplicationsGrid: SettingApplications[]}) => {
           this.applications = data.settingApplicationsGrid,

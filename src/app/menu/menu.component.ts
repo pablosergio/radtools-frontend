@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DropdownModule } from "ngx-dropdown";
+import { LoaderService } from './loader.service';
 
 @Component({
   //selector: 'rt-menu',
@@ -8,10 +9,15 @@ import { DropdownModule } from "ngx-dropdown";
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  objLoaderStatus: boolean;
+  constructor( private loaderService: LoaderService ) { 
+  	this.objLoaderStatus = false;
+  }
 
   ngOnInit() {
+  	this.loaderService.loaderStatus.subscribe((val: boolean) => {
+            this.objLoaderStatus = val;
+    });
   }
 
   logout() {

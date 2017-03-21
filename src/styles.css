@@ -118,3 +118,61 @@ Copyright 2017 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */
+body label {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.57142857;
+  color: #39597a;
+  font-weight: bold;
+}
+
+.page {
+  padding: 15px;
+}
+
+@media (max-width: 320px) {
+  .page .row > [class^='col'] {
+    width: 100%;
+  }
+}
+.page .page-wrap > .row {
+  padding: 0 15px;
+}
+
+.breadcrumb-small {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.breadcrumb-small > li {
+  color: #6c6c6c;
+}
+.breadcrumb-small > li + li:before {
+  display: inline-block;
+  -webkit-transform: translate(0, -1px);
+  -ms-transform: translate(0, -1px);
+  -o-transform: translate(0, -1px);
+  transform: translate(0, -1px);
+}
+ol > li {
+  display: inline-block;
+
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+.panel {
+  margin-bottom: 0;
+  box-shadow: none;
+}
+.panel-hovered:hover {
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+.table tbody > th .horizontal-align{
+  horiz-align: center;
+}
+.table > thead > tr > td.active, .table > tbody > tr > td.active, .table > tfoot > tr > td.active, .table > thead > tr > th.active, .table > tbody > tr > th.active, .table > tfoot > tr > th.active, .table > thead > tr.active > td, .table > tbody > tr.active > td, .table > tfoot > tr.active > td, .table > thead > tr.active > th, .table > tbody > tr.active > th, .table > tfoot > tr.active > th {
+  background-color: #ddd;
+}

@@ -38,6 +38,7 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+   
     //DropdownModule,
     
     //SettingsApplicationModule, /* el orden de los import es importante */

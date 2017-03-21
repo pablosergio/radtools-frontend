@@ -3,7 +3,11 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { DropdownModule } from "ngx-dropdown";
+import { NglModule } from 'ng-lightning/ng-lightning';
+
 import { MenuRoutingModule } from './menu-routing.module';
+
+import { LoaderService } from './loader.service';
 
 /*import { SettingApplicationsComponent } from './setting-applications.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +21,7 @@ import { SettingApplicationsService } from './setting-applications.service';*/
   imports: [
     CommonModule,
     FormsModule,
+    NglModule.forRoot(),
     DropdownModule,
     MenuRoutingModule
     //SettingApplicationsRoutingModule
@@ -29,6 +34,7 @@ import { SettingApplicationsService } from './setting-applications.service';*/
       MenuComponent,
   ],
   providers: [
+    LoaderService
     //SettingApplicationsService
   ]
 })
