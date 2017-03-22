@@ -20,7 +20,6 @@ export class SettingApplicationsGridComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService, private loaderService: LoaderService) {  }
 
   ngOnInit() {
-    this.loaderService.displayLoader(true);
     this.route.data
       .subscribe((data: { settingApplicationsGrid: SettingApplications[]}) => {
           this.applications = data.settingApplicationsGrid,
