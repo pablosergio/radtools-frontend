@@ -5,11 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { SettingApplications } from '../setting-applications';
 import { SettingApplicationsService } from '../setting-applications.service';
 import { LoaderService } from '../../menu/loader.service';
+import { PagedResponse} from '../../paged-response';
 
-export interface DataModel {
-  rows: SettingApplications[],
-  total: number
-}
 
 @Component({
   selector: 'rt-setting-applications-grid',
@@ -29,7 +26,7 @@ export class SettingApplicationsGridComponent implements OnInit {
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: { settingApplicationsGrid: DataModel }) => {
+      .subscribe((data: { settingApplicationsGrid: PagedResponse<SettingApplications> }) => {
           this.applications = data.settingApplicationsGrid.rows,
           this.totalItems = data.settingApplicationsGrid.total,
           error =>  this.errorMessage = <any>error

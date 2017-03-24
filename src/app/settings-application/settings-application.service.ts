@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 import { AppConfig } from '../config/app.config';
 import { SettingsApplication } from './settings-application';
 import { LoggerService }  from '../logger.service';
+import { PagedResponse} from '../paged-response';
+
 
 @Injectable()
 export class SettingsApplicationService {
@@ -21,7 +23,7 @@ export class SettingsApplicationService {
   getSettingsApplication(id: number | string): Observable<SettingsApplication> {
     return this.http.get(this.config.getEndpoint('applicationSettings', null) + '/' +id)
             .map(this.extractOneData)
-            .catch(this.handlerError);
+            .catch(this.handleError);
   }
 
   private extractData(res: Response) {

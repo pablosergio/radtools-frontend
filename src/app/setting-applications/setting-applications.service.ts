@@ -6,17 +6,14 @@ import 'rxjs/add/operator/map';
 import { AppConfig } from '../config/app.config';
 import { SettingApplications } from './setting-applications';
 import { LoggerService }  from '../logger.service';
+import { PagedResponse} from '../paged-response';
 
-export interface DataModel {
-  rows: SettingApplications[],
-  total: number
-}
 
 @Injectable()
 export class SettingApplicationsService {
   constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
-  getSettingApplications(param): Observable<DataModel>{
+  getSettingApplications(param): Observable<PagedResponse<SettingApplications>>{
     let params: URLSearchParams = this.objToSearchParams(param);
     
     return this.http.get(this.config.getEndpoint('applicationSettings', null), { search: params })

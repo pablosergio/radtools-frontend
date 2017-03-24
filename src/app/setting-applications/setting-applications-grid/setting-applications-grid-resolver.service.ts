@@ -4,17 +4,13 @@ import { SettingApplications } from '../setting-applications';
 import { SettingApplicationsService } from '../setting-applications.service';
 import { LoaderService } from '../../menu/loader.service';
 import { Observable } from 'rxjs/Observable';
-
-export interface DataModel {
-  rows: SettingApplications[],
-  total: number
-}
+import { PagedResponse} from '../../paged-response';
 
 @Injectable()
-export class SettingApplicationsGridResolver implements Resolve<DataModel> {
+export class SettingApplicationsGridResolver implements Resolve<PagedResponse<SettingApplications>> {
   constructor(private cs: SettingApplicationsService, private router: Router, private loaderService: LoaderService) {  }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<DataModel> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResponse<SettingApplications>> {
     //let id = route.params['id'];
     //this.loaderService.displayLoader(true);
     return this.cs.getSettingApplications({start: 0, limit: 10});
