@@ -125,11 +125,21 @@ html, body {
 }
 body {
     color: #333333;
-    font-family: "Helvetica Light",Helvetica,"Droid Sans",Arial,Arial Unicode MS,sans-serif;
-    font-size: 12px;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    /*font-family: "Helvetica Light",Helvetica,"Droid Sans",Arial,Arial Unicode MS,sans-serif;*/
+    /*font-size: 12px;*/
+    font-size: 1rem;
     line-height: 1.45;
     background-color: #fff;
 }
+/*body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: #373A3C;
+    background-color: #F1F1F1;
+}*/
 body {
     letter-spacing: .5px;
     height: 100%;
@@ -137,13 +147,13 @@ body {
     background: #efefef;
     position: relative;
 }
-body label {
+/*body label {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.57142857;
   color: #39597a;
   font-weight: bold;
-}
+}*/
 
 ol > li {
   display: inline-block;
@@ -220,3 +230,59 @@ ul, ol {
   background-color: #ddd;
 }
 
+.card-header {
+    border-bottom: 1px solid #EEE;
+}
+
+.card-header .card-title {
+    margin-bottom: 0;
+}
+.card .card-title {
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: .4px;
+}
+
+.card-header .heading-elements, .card-header .heading-elements-toggle {
+    background-color: inherit;
+    position: absolute;
+    top: 14px;
+    right: 21px;
+}
+
+.card-footer, .card-header {
+    padding: 1rem 1.5rem;
+    background-color: #FFF;
+}
+
+.h4, h4 {
+    font-size: 1.32rem;
+}
+
+@media (min-width: 992px)
+.heading-elements-toggle {
+    display: none;
+}
+
+
+.list-inline, .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+dl, h1, h2, h3, h4, h5, h6, ol, p, ul {
+    margin-top: 0;
+}
+.icon-spin, ul.list-inline li {
+    display: inline-block;
+}
+dl li, ol li, ul li {
+    line-height: 1.8;
+}
+
+.card-header .heading-elements a, .card-header .heading-elements-toggle a {
+    padding: 0 8px;
+}
+
+.card-block {
+    padding: 1.5rem;
+}

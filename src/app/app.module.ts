@@ -16,6 +16,7 @@ import { LoginModule } from './login/login.module';
 
 //import { MenuComponent } from './menu/menu.component';
 import { AppPageNotFoundComponent } from './app-page-not-found/app-page-not-found.component';
+//import { PaginationDirective } from 'angular2-bootstrap-pagination/directives/pagination.directive';
 
 import { AppComponent } from './app.component';
 
@@ -31,6 +32,7 @@ import { AuthService } from './auth/auth.service';
     //MenuComponent,
     AppComponent,
     AppPageNotFoundComponent,
+    //PaginationDirective
     //DialogComponent,
     //MenuDirective,
   ],

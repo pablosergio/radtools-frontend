@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -7,13 +7,19 @@ import { AppConfig } from '../config/app.config';
 import { SettingApplications } from './setting-applications';
 import { LoggerService }  from '../logger.service';
 
+export interface DataModel {
+  rows: SettingApplications[],
+  total: number
+}
+
 @Injectable()
 export class SettingApplicationsService {
-
   constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
-  getSettingApplications(): Observable<SettingApplications[]>{
-    return this.http.get(this.config.getEndpoint('applicationSettings', null))
+  getSettingApplications(param): Observable<DataModel>{
+    let params: URLSearchParams = this.objToSearchParams(param);
+    
+    return this.http.get(this.config.getEndpoint('applicationSettings', null), { search: params })
   					.map(this.extractData)
   					.catch(this.handleError);
   }
@@ -26,7 +32,7 @@ export class SettingApplicationsService {
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.rows || { };
+    return body || { };
   }
 
   private extractOneData(res: Response) {
@@ -48,5 +54,15 @@ export class SettingApplicationsService {
     this.logger.log(errMsg);
     return Observable.throw(errMsg);
   }
+
+  private objToSearchParams(obj): URLSearchParams{
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('limit', '10');
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key))
+            params.set(key, obj[key]);
+    }
+    return params;
+ }
 
 }

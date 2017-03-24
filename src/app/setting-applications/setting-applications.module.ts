@@ -1,3 +1,4 @@
+/* npm install ng2-pagination --save */
 import { NgModule }       from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
@@ -6,18 +7,21 @@ import { SettingApplicationsGridComponent } from './setting-applications-grid/se
 import { SettingApplicationsFormComponent } from './setting-applications-form/setting-applications-form.component';
 import { SettingApplicationsRoutingModule } from './setting-applications-routing.module';
 import { SettingApplicationsService } from './setting-applications.service';
+import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    Ng2PaginationModule,
     SettingApplicationsRoutingModule
   ],
   declarations: [
-  	  SettingApplicationsComponent,
+      SettingApplicationsComponent,
       SettingApplicationsGridComponent,
-  	  SettingApplicationsFormComponent
+  	  SettingApplicationsFormComponent,
   ],
   providers: [
     SettingApplicationsService
