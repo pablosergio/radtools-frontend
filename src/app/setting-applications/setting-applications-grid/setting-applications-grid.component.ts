@@ -9,10 +9,10 @@ import { PagedResponse} from '../../paged-response';
 
 
 @Component({
+  moduleId: module.id,
   selector: 'rt-setting-applications-grid',
   templateUrl: './setting-applications-grid.component.html',
   styleUrls: ['./setting-applications-grid.component.css'],
-  moduleId: module.id
 })
 
 export class SettingApplicationsGridComponent implements OnInit {

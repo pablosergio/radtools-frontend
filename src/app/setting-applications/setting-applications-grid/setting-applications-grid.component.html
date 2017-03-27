@@ -5,14 +5,16 @@
           <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
-                <li><a data-action="collapse"><i class="fa fa-minus"></i></a></li>
+                <li><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a></li>
+                <!--<li><a data-action="collapse" (click)="height = height ? 0 : el.scrollHeight"><i class="fa fa-minus"></i></a></li>-->
                 <li><a data-action="reload"><i class="fa fa-refresh"></i></a></li>
                 <li><a data-action="expand"><i class="fa fa-window-maximize"></i></a></li>
                 <li><a data-action="close"><i class="fa fa-times"></i></a></li>
               </ul>
             </div>
   </div>
-  <div class="card-body collapse in">
+  <div [collapse]="isCollapsed">
+  <!--<div class="card card-block block" [style.height]="height + 'px'" #el>-->
     <div class="card-block card-dashboard">              
 	    <table class="table table-bordered table-striped table-hover">
 		    <thead>
@@ -38,7 +40,7 @@
           </tr>        
         </tbody>
 	    </table>
-      <pagination-controls (pageChange)="p = pageChanged($event)"></pagination-controls>
+      <pagination-controls style="float: right;" (pageChange)="p = pageChanged($event)"></pagination-controls>
     </div>
   </div>
  </div>

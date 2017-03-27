@@ -113,9 +113,15 @@ input.form-control.form-group-xs>.form-control-position,input.form-control.input
 .line-on-side{
 	border-bottom:1px solid #DADADA;
 	line-height:.1em;
-	margin:10px 0 20px
+	margin:40px 0 20px
 }
 .line-on-side span{
 	background:#FFF;
 	padding:0 10px
+}
+.font-small-3 {
+    font-size: .9rem!important;
+}
+.text-xs-center {
+    text-align: center!important;
 }

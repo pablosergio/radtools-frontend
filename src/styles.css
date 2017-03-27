@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* Master Styles */
-h1 {
+/*h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
@@ -12,7 +12,7 @@ h2, h3 {
 }
 body {
   /*margin: 2em;  para que la barra de menu no tenga margen */ 
-}
+/*}
 body, input[text], button {
   color: #888;
   font-family: Cambria, Georgia;
@@ -40,7 +40,7 @@ button:disabled {
 }
 
 /* Navigation link styles */
-nav a {
+/*nav a {
   padding: 5px 10px;
   text-decoration: none;
   margin-right: 10px;
@@ -58,10 +58,13 @@ nav a:hover {
 }
 nav a.active {
   color: #039be5;
+}*/
+a.dropdown-item.active {
+  color: white;
+  background-color: blue;
 }
-
 /* items class */
-.items {
+/*.items {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
@@ -107,7 +110,7 @@ nav a.active {
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
-/* everywhere else */
+/* everywhere else *//*
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -284,5 +287,11 @@ dl li, ol li, ul li {
 }
 
 .card-block {
-    padding: 1.5rem;
+    padding: 1.0rem
+}
+
+.block {
+      overflow: hidden;
+      -webkit-transition: height .5s;
+      transition: height .5s;
 }

@@ -2,6 +2,8 @@
 import { NgModule }       from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
+import { CollapseDirective } from '../collapse.directive';
+
 import { SettingApplicationsComponent } from './setting-applications.component';
 import { SettingApplicationsGridComponent } from './setting-applications-grid/setting-applications-grid.component';
 import { SettingApplicationsFormComponent } from './setting-applications-form/setting-applications-form.component';
@@ -20,6 +22,7 @@ import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
   ],
   declarations: [
       SettingApplicationsComponent,
+      CollapseDirective,
       SettingApplicationsGridComponent,
   	  SettingApplicationsFormComponent,
   ],
