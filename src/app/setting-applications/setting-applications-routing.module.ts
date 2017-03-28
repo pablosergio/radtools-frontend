@@ -12,7 +12,7 @@ const settingApplicationsRoutes: Routes = [
     path: '',
     canActivate: [AuthGuardService],
     resolve: {
-       settingApplicationsGrid: SettingApplicationsGridResolver
+       data: SettingApplicationsGridResolver
     },
     component: SettingApplicationsComponent,
     children: [

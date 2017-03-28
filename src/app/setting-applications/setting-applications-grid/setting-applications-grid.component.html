@@ -8,7 +8,7 @@
                 <li *ngIf="!isCollapsed"><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a></li>
                 <li *ngIf="isCollapsed"><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i></a></li>
                 <!--<li><a data-action="collapse" (click)="height = height ? 0 : el.scrollHeight"><i class="fa fa-minus"></i></a></li>-->
-                <li><a data-action="reload"><i class="fa fa-refresh"></i></a></li>
+                <li><a (click) = "p = reload()"><i class="fa fa-refresh"></i></a></li>
                 <li><a data-action="expand"><i class="fa fa-window-maximize"></i></a></li>
                 <li><a data-action="close"><i class="fa fa-times"></i></a></li>
               </ul>
@@ -30,7 +30,7 @@
     			</tr>
 		    </thead>
 		    <tbody>
-    			<tr *ngFor= "let application of applications | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: totalItems }" [class.selected]="isSelected(application)">
+    			<tr *ngFor= "let application of data | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: totalItems }" [class.selected]="isSelected(application)">
                   <td><a href="" class="fa fa-file-text-o" ng-click="historyRecord($index, data, $event)"></a>&#32;<a href="" class="fa fa-trash" ng-click="removeRecord($index, data, $event)"></a>&#32;<a [routerLink] = "[application.application_id]" class="fa fa-pencil" (click) = "onSelect(application)"></a></td>
                   <td>{{application.name_application}}</td>
                   <td>{{application.path_application}}</td>

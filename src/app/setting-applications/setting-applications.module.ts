@@ -10,6 +10,7 @@ import { SettingApplicationsFormComponent } from './setting-applications-form/se
 import { SettingApplicationsRoutingModule } from './setting-applications-routing.module';
 import { SettingApplicationsService } from './setting-applications.service';
 import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
+import { DataService } from '../base/data-service';
 
 
 
@@ -27,6 +28,7 @@ import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
   	  SettingApplicationsFormComponent,
   ],
   providers: [
+    DataService,
     SettingApplicationsService
   ]
 })

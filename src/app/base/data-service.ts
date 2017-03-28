@@ -10,6 +10,7 @@ import { PagedResponse} from '../paged-response';
 
 @Injectable()
 export class DataService<T> {
+ endpoint:string;
   constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
 

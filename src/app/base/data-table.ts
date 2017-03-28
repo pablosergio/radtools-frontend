@@ -1,40 +1,39 @@
-/*import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+//import { SettingApplications } from '../setting-applications';
+import { DataService } from './data-service';
 import { LoaderService } from '../menu/loader.service';
 import { PagedResponse} from '../paged-response';
 
 
-export class DataTable {
+/*@Component({
+  moduleId: module.id,
+  selector: 'rt-setting-applications-grid',
+  templateUrl: './setting-applications-grid.component.html',
+  styleUrls: ['./setting-applications-grid.component.css'],
+})*/
+
+export class DataTable<T> implements OnInit {
   errorMessage: string;
   data: T[];
-  private selectedId: number;
+  protected selectedId: number;
   totalItems: number;
   itemsPerPage: number = 10;
   
-  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService, private loaderService: LoaderService) {  }
+  constructor(protected route: ActivatedRoute, protected router: Router, private service: DataService<T>, private loaderService: LoaderService) {  }
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: { settingApplicationsGrid: PagedResponse<SettingApplications> }) => {
-          this.applications = data.settingApplicationsGrid.rows,
-          this.totalItems = data.settingApplicationsGrid.total,
+      .subscribe((data: { data: PagedResponse<T> }) => {
+          this.data = data.data.rows,
+          this.totalItems = data.data.total,
           error =>  this.errorMessage = <any>error
     });
+ }
 
-    /*this.route.params
-      .switchMap((params: Params) =>  {
-          this.selectedId = +params['id'];
-           return this.service.getSettingApplications()
-      })
-      .subscribe(
-          applications => this.applications = applications,
-          error =>  this.errorMessage = <any>error
-      ); */
-/*  }
-
-  onSelect(application: SettingApplications) {
+  /*onSelect(application: SettingApplications) {
     //this.router.navigate(['/setting-applications', application.application_id]);
     this.selectedId = application.application_id;
 
@@ -45,17 +44,31 @@ export class DataTable {
 
   isSelected(application: SettingApplications) {
     return application.application_id === this.selectedId;
-  }
+  }*/
 
   
   public pageChanged(page:number):number {
    //this method will trigger every page click  
-   this.service.getSettingApplications({ start: ((page-1) * this.itemsPerPage) , limit: this.itemsPerPage })
+   this.service.getAll({ start: ((page-1) * this.itemsPerPage) , limit: this.itemsPerPage })
     .subscribe(
-        applications => this.applications = applications.rows,
+        result => this.data = result.rows,
         error => this.errorMessage = <any>error
       )
     return page;
   };
+
+  public reload(): number{
+    this.loaderService.displayLoader(true);
+    this.service.getAll({})
+    .subscribe(
+        result => {
+          this.data = result.rows,
+          this.loaderService.displayLoader(false)
+        }, 
+        error => this.errorMessage = <any>error
+      )
+    return 1;
+  }
+
 }
-*/
+
