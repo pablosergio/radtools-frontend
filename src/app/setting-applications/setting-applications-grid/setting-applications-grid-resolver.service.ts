@@ -13,6 +13,6 @@ export class SettingApplicationsGridResolver implements Resolve<PagedResponse<Se
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PagedResponse<SettingApplications>> {
     //let id = route.params['id'];
     //this.loaderService.displayLoader(true);
-    return this.cs.getSettingApplications({start: 0, limit: 10});
+    return this.cs.getAll({start: 0, limit: 10});
   }
 }

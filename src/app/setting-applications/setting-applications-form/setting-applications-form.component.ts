@@ -26,7 +26,7 @@ export class SettingApplicationsFormComponent implements OnInit {
 
    this.route.params
    //(+) converts string 'id' to a number
-      .switchMap((params: Params) => this.service.getSettingApplication(+params['id']))
+      .switchMap((params: Params) => this.service.getOne(+params['id']))
       .subscribe(
           settingApplication => this.application = settingApplication,
           error =>  this.errorMessage = <any>error);

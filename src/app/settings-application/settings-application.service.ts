@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
+import { DataService } from '../base/data-service';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+//import { Observable } from 'rxjs/Observable';
+//import 'rxjs/add/operator/catch';
+//import 'rxjs/add/operator/map';
 import { AppConfig } from '../config/app.config';
 import { SettingsApplication } from './settings-application';
 import { LoggerService }  from '../logger.service';
-import { PagedResponse} from '../paged-response';
+//import { PagedResponse} from '../paged-response';
 
 
 @Injectable()
-export class SettingsApplicationService {
+export class SettingsApplicationService extends DataService<SettingsApplication>{
+ 
 
-  constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
-
-  getSettingsApplications(): Observable<SettingsApplication[]>{
+  
+  /*getSettingsApplications(): Observable<SettingsApplication[]>{
     return this.http.get(this.config.getEndpoint('applicationSettings', null))
   					.map(this.extractData)
   					.catch(this.handleError);
@@ -49,6 +50,6 @@ export class SettingsApplicationService {
     console.error(errMsg);
     this.logger.log(errMsg);
     return Observable.throw(errMsg);
-  }
+  }*/
 
 }

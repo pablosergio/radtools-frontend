@@ -5,7 +5,8 @@
           <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
             <div class="heading-elements">
               <ul class="list-inline mb-0">
-                <li><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a></li>
+                <li *ngIf="!isCollapsed"><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a></li>
+                <li *ngIf="isCollapsed"><a (click)="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i></a></li>
                 <!--<li><a data-action="collapse" (click)="height = height ? 0 : el.scrollHeight"><i class="fa fa-minus"></i></a></li>-->
                 <li><a data-action="reload"><i class="fa fa-refresh"></i></a></li>
                 <li><a data-action="expand"><i class="fa fa-window-maximize"></i></a></li>
@@ -45,4 +46,5 @@
   </div>
  </div>
 </div>
+
 <router-outlet></router-outlet>

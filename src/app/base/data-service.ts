@@ -1,30 +1,28 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../base/data-service';
-//import { Http, Response, URLSearchParams } from '@angular/http';
-//import { Observable } from 'rxjs/Observable';
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/operator/map';
-//import { AppConfig } from '../config/app.config';
-import { SettingApplications } from './setting-applications';
-//import { LoggerService }  from '../logger.service';
-//import { PagedResponse} from '../paged-response';
+import { Http, Response, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import { AppConfig } from '../config/app.config';
+import { LoggerService }  from '../logger.service';
+import { PagedResponse} from '../paged-response';
 
 
 @Injectable()
-export class SettingApplicationsService  extends DataService<SettingApplications> {
-  endpoint:string = "applicationSettings";
-  /*constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
+export class DataService<T> {
+  constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
 
-  getSettingApplications(param): Observable<PagedResponse<SettingApplications>>{
+
+  getAll(param): Observable<PagedResponse<T>>{
     let params: URLSearchParams = this.objToSearchParams(param);
     
-    return this.http.get(this.config.getEndpoint('applicationSettings', null), { search: params })
+    return this.http.get(this.config.getEndpoint(this.endpoint, null), { search: params })
   					.map(this.extractData)
   					.catch(this.handleError);
   }
 
-  getSettingApplication(id: number | string): Observable<SettingApplications> {
-    return this.http.get(this.config.getEndpoint('applicationSettings', null) + '/' +id)
+  getOne(id: number | string): Observable<T> {
+    return this.http.get(this.config.getEndpoint(this.endpoint, null) + '/' +id)
             .map(this.extractOneData)
             .catch(this.handleError);
   }
@@ -62,6 +60,6 @@ export class SettingApplicationsService  extends DataService<SettingApplications
             params.set(key, obj[key]);
     }
     return params;
- }*/
+ }
 
 }
