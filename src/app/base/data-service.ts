@@ -28,6 +28,13 @@ export class DataService<T> {
             .catch(this.handleError);
   }
 
+  save(record: T): Observable<T> {
+    console.dir(record);
+    return this.http.post(this.config.getEndpoint(this.endpoint, null), record)
+            .map(this.extractOneData)
+            .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body || { };

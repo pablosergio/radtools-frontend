@@ -90,7 +90,6 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { DataService } from '../../base/data-service';
 import { LoaderService } from '../../menu/loader.service';
 
-
 @Component({
   moduleId: module.id,
   selector: 'rt-setting-applications-grid',
@@ -110,7 +109,6 @@ export class SettingApplicationsGridComponent extends DataTable<SettingApplicati
 
     // Navigate with relative link
     this.router.navigate([application.application_id], { relativeTo: this.route });
-
   }
 
   isSelected(application: SettingApplications) {

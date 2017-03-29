@@ -8,21 +8,14 @@ import { LoaderService } from '../menu/loader.service';
 import { PagedResponse} from '../paged-response';
 
 
-/*@Component({
-  moduleId: module.id,
-  selector: 'rt-setting-applications-grid',
-  templateUrl: './setting-applications-grid.component.html',
-  styleUrls: ['./setting-applications-grid.component.css'],
-})*/
-
 export class DataTable<T> implements OnInit {
   errorMessage: string;
   data: T[];
   protected selectedId: number;
   totalItems: number;
   itemsPerPage: number = 10;
-  
-  constructor(protected route: ActivatedRoute, protected router: Router, private service: DataService<T>, private loaderService: LoaderService) {  }
+  currentPage: number;
+  constructor(protected route: ActivatedRoute, protected router: Router, protected service: DataService<T>, protected loaderService: LoaderService) {  }
 
   ngOnInit() {
     this.route.data
@@ -49,9 +42,13 @@ export class DataTable<T> implements OnInit {
   
   public pageChanged(page:number):number {
    //this method will trigger every page click  
+
    this.service.getAll({ start: ((page-1) * this.itemsPerPage) , limit: this.itemsPerPage })
     .subscribe(
-        result => this.data = result.rows,
+         result => {
+         	this.data = result.rows, 
+         	this.currentPage = page;
+        },
         error => this.errorMessage = <any>error
       )
     return page;
@@ -59,7 +56,7 @@ export class DataTable<T> implements OnInit {
 
   public reload(): number{
     this.loaderService.displayLoader(true);
-    this.service.getAll({})
+    this.service.getAll({ start: ((this.currentPage-1) * this.itemsPerPage) , limit: this.itemsPerPage})
     .subscribe(
         result => {
           this.data = result.rows,
@@ -67,7 +64,7 @@ export class DataTable<T> implements OnInit {
         }, 
         error => this.errorMessage = <any>error
       )
-    return 1;
+    return this.currentPage;
   }
 
 }

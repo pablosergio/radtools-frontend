@@ -1,5 +1,5 @@
-<div>
-<form (ngSubmit)="register()">
+<window-dialog [(visible)]="showDialog" [closable]="false">
+<form (ngSubmit)="save()">
 	<div class="form-group">
 		<label class="center-block">Application Name
 			<input [(ngModel)]="application.name_application" [ngModelOptions]="{standalone: true}" class="form-control">
@@ -36,8 +36,8 @@
 		</label>	
 	</div>
 	 <p>
-      <button (click)="save()">Save</button>
+      <button type="submit">Save</button>
       <button (click)="cancel()">Cancel</button>
     </p>
 </form>
-</div>
+</window-dialog>

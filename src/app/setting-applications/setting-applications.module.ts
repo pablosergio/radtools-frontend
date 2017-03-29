@@ -11,7 +11,7 @@ import { SettingApplicationsRoutingModule } from './setting-applications-routing
 import { SettingApplicationsService } from './setting-applications.service';
 import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
 import { DataService } from '../base/data-service';
-
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -25,7 +25,9 @@ import { DataService } from '../base/data-service';
       SettingApplicationsComponent,
       CollapseDirective,
       SettingApplicationsGridComponent,
+      DialogComponent,
   	  SettingApplicationsFormComponent,
+  	 
   ],
   providers: [
     DataService,
