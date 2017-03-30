@@ -29,8 +29,13 @@ export class DataService<T> {
   }
 
   save(record: T): Observable<T> {
-    console.dir(record);
     return this.http.post(this.config.getEndpoint(this.endpoint, null), record)
+            .map(this.extractOneData)
+            .catch(this.handleError);
+  }
+
+  update(record: T): Observable<T> {
+    return this.http.put(this.config.getEndpoint(this.endpoint, null), record)
             .map(this.extractOneData)
             .catch(this.handleError);
   }

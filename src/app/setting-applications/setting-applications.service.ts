@@ -6,6 +6,7 @@ import { DataService } from '../base/data-service';
 //import 'rxjs/add/operator/map';
 //import { AppConfig } from '../config/app.config';
 import { SettingApplications } from './setting-applications';
+import { Subject }    from 'rxjs/Subject';
 //import { LoggerService }  from '../logger.service';
 //import { PagedResponse} from '../paged-response';
 
@@ -63,5 +64,27 @@ export class SettingApplicationsService  extends DataService<SettingApplications
     }
     return params;
  }*/
+ guardar(record: SettingApplications){
+   if(record.application_id !== null)
+     return this.update(record);
+   else
+      return this.save(record);
+ }
 
+
+ // Observable string sources
+  private missionAnnouncedSource = new Subject<string>();
+  private missionConfirmedSource = new Subject<string>();
+  // Observable string streams
+  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+  missionConfirmed$ = this.missionConfirmedSource.asObservable();
+  // Service message commands
+  announceMission(mission: string) {
+    this.missionAnnouncedSource.next(mission);
+  }
+  confirmMission(astronaut: string) {
+    this.missionConfirmedSource.next(astronaut);
+  }
+
+ 
 }

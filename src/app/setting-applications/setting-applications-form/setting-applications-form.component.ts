@@ -1,9 +1,10 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SettingApplications } from '../setting-applications';
 
 //import { slideInDownAnimation } from '../../animations';
 import { SettingApplicationsService } from '../setting-applications.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription }   from 'rxjs/Subscription';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -13,19 +14,29 @@ import 'rxjs/add/operator/switchMap';
   //animations: [ slideInDownAnimation ],
   moduleId: module.id
 })
-export class SettingApplicationsFormComponent implements OnInit {
+export class SettingApplicationsFormComponent implements OnInit, OnDestroy{
  /* @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';*/
-
   errorMessage: string;
   application: SettingApplications = new SettingApplications();
   showDialog = true;
   model: any = {};
   loading = false;
   error = '';
+  subscription: Subscription;
+  mission = '<no mission announced>';
+  confirmed = false;
+  announced = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService){ }
+  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService){ 
+    this.subscription = service.missionAnnounced$.subscribe(
+      mission => {
+        this.mission = mission;
+        this.announced = true;
+        this.confirmed = false;
+    });
+  }
 
   ngOnInit() {
    this.route.params
@@ -44,13 +55,20 @@ export class SettingApplicationsFormComponent implements OnInit {
    // Relative navigation back to the Setting Applications
     let applicationId = this.application ? this.application.application_id: null;
     this.router.navigate(['../'], { relativeTo: this.route });
+    this.service.confirmMission("test");
+    console.log('emitiendo evento');
   }
 
   save() {
-       this.service.save(this.application).subscribe(
+       this.service.guardar(this.application).subscribe(
           result => this.gotoSettingApplications(),
           error =>  this.errorMessage = <any>error);;
     }
 
+
+    ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
 }
 

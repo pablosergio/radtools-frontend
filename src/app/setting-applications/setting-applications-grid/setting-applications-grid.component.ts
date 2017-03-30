@@ -89,6 +89,7 @@ import { SettingApplications } from '../setting-applications';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { DataService } from '../../base/data-service';
 import { LoaderService } from '../../menu/loader.service';
+import { SettingApplicationsService } from '../setting-applications.service'
 
 @Component({
   moduleId: module.id,
@@ -98,9 +99,13 @@ import { LoaderService } from '../../menu/loader.service';
 })
 
 export class SettingApplicationsGridComponent extends DataTable<SettingApplications>{
-  constructor(route: ActivatedRoute, router: Router, service: DataService<SettingApplications>, loaderService: LoaderService) {  
+  constructor(route: ActivatedRoute, router: Router, service: DataService<SettingApplications>, loaderService: LoaderService, private s: SettingApplicationsService) {  
     super(route, router, service, loaderService);
-    service.endpoint = "applicationSettings"
+    service.endpoint = "applicationSettings",
+    s.missionConfirmed$.subscribe(
+      astronaut => {
+        this.reload();
+      });
   }
 
   onSelect(application: SettingApplications) {
@@ -113,5 +118,9 @@ export class SettingApplicationsGridComponent extends DataTable<SettingApplicati
 
   isSelected(application: SettingApplications) {
     return application.application_id === this.selectedId;
+  }
+
+  listeningEvent(result:boolean){
+    console.log('event ' + result);
   }
 }
