@@ -25,16 +25,11 @@ export class SettingApplicationsFormComponent implements OnInit, OnDestroy{
   loading = false;
   error = '';
   subscription: Subscription;
-  mission = '<no mission announced>';
-  confirmed = false;
-  announced = false;
-
+  
   constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService){ 
-    this.subscription = service.missionAnnounced$.subscribe(
-      mission => {
-        this.mission = mission;
-        this.announced = true;
-        this.confirmed = false;
+    this.subscription = service.communication.update$.subscribe(
+      application => {
+        this.application = application;
     });
   }
 
@@ -55,8 +50,7 @@ export class SettingApplicationsFormComponent implements OnInit, OnDestroy{
    // Relative navigation back to the Setting Applications
     let applicationId = this.application ? this.application.application_id: null;
     this.router.navigate(['../'], { relativeTo: this.route });
-    this.service.confirmMission("test");
-    console.log('emitiendo evento');
+    this.service.communication.update(this.application);
   }
 
   save() {

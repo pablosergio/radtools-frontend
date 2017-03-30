@@ -99,11 +99,11 @@ import { SettingApplicationsService } from '../setting-applications.service'
 })
 
 export class SettingApplicationsGridComponent extends DataTable<SettingApplications>{
-  constructor(route: ActivatedRoute, router: Router, service: DataService<SettingApplications>, loaderService: LoaderService, private s: SettingApplicationsService) {  
+  constructor(route: ActivatedRoute, router: Router, service: DataService<SettingApplications>, loaderService: LoaderService) {  
     super(route, router, service, loaderService);
     service.endpoint = "applicationSettings",
-    s.missionConfirmed$.subscribe(
-      astronaut => {
+    service.communication.update$.subscribe(
+      result => {
         this.reload();
       });
   }
@@ -120,7 +120,4 @@ export class SettingApplicationsGridComponent extends DataTable<SettingApplicati
     return application.application_id === this.selectedId;
   }
 
-  listeningEvent(result:boolean){
-    console.log('event ' + result);
-  }
 }

@@ -6,12 +6,13 @@ import 'rxjs/add/operator/map';
 import { AppConfig } from '../config/app.config';
 import { LoggerService }  from '../logger.service';
 import { PagedResponse} from '../paged-response';
+import { CommunicationService } from './communication.service';
 
 
 @Injectable()
 export class DataService<T> {
  endpoint:string;
-  constructor(private logger: LoggerService, private http: Http, private config: AppConfig) { }
+  constructor(private logger: LoggerService, private http: Http, private config: AppConfig, public communication: CommunicationService<T>) { }
 
 
   getAll(param): Observable<PagedResponse<T>>{

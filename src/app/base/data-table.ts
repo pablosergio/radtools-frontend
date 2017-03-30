@@ -18,6 +18,7 @@ export class DataTable<T> implements OnInit {
   constructor(protected route: ActivatedRoute, protected router: Router, protected service: DataService<T>, protected loaderService: LoaderService) {  }
 
   ngOnInit() {
+    this.currentPage = 1;
     this.route.data
       .subscribe((data: { data: PagedResponse<T> }) => {
           this.data = data.data.rows,

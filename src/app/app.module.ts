@@ -23,6 +23,8 @@ import { AppComponent } from './app.component';
 import { LoggerService } from './logger.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { CommunicationService } from './base/communication.service';
+
 //import { DialogComponent } from './dialog/dialog.component';
 //import { MenuDirective } from './menu/menu.directive';
 
@@ -56,7 +58,8 @@ import { AuthService } from './auth/auth.service';
     //{ provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true }
     { provide: APP_INITIALIZER, useFactory: loadConfig, deps: [AppConfig], multi: true },
     AuthGuardService,
-    AuthService
+    AuthService,
+    CommunicationService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,4 @@
+/* https://angular.io/docs/ts/latest/cookbook/component-communication.html */
 import { Injectable } from '@angular/core';
 import { DataService } from '../base/data-service';
 //import { Http, Response, URLSearchParams } from '@angular/http';
@@ -6,7 +7,7 @@ import { DataService } from '../base/data-service';
 //import 'rxjs/add/operator/map';
 //import { AppConfig } from '../config/app.config';
 import { SettingApplications } from './setting-applications';
-import { Subject }    from 'rxjs/Subject';
+//import { Subject }    from 'rxjs/Subject';
 //import { LoggerService }  from '../logger.service';
 //import { PagedResponse} from '../paged-response';
 
@@ -73,7 +74,7 @@ export class SettingApplicationsService  extends DataService<SettingApplications
 
 
  // Observable string sources
-  private missionAnnouncedSource = new Subject<string>();
+  /*private missionAnnouncedSource = new Subject<string>();
   private missionConfirmedSource = new Subject<string>();
   // Observable string streams
   missionAnnounced$ = this.missionAnnouncedSource.asObservable();
@@ -85,6 +86,6 @@ export class SettingApplicationsService  extends DataService<SettingApplications
   confirmMission(astronaut: string) {
     this.missionConfirmedSource.next(astronaut);
   }
+*/
 
- 
 }
