@@ -9,7 +9,7 @@
 	</ngl-form-element>
 
 	<ngl-form-element label="Toke Secret" [error]="hasError ? error : null" class="slds-m-top--small">
-  		<input nglFormControl type="password" placeholder="Token Application" [required]="required" [(ngModel)]="application.token_application" [ngModelOptions]="{standalone: true}">
+  		<input nglFormControl type="password" placeholder="Token Application" [required]="required" [(ngModel)]="application.token_secret" [ngModelOptions]="{standalone: true}">
 	</ngl-form-element>
 
 	<ngl-form-element label="Host" [error]="hasError ? error : null" class="slds-m-top--small">
