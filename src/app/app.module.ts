@@ -24,7 +24,7 @@ import { LoggerService } from './logger.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { CommunicationService } from './base/communication.service';
-
+import { ModalCommunicationService } from './base/modal-communication.service';
 //import { DialogComponent } from './dialog/dialog.component';
 //import { MenuDirective } from './menu/menu.directive';
 
@@ -59,7 +59,8 @@ import { CommunicationService } from './base/communication.service';
     { provide: APP_INITIALIZER, useFactory: loadConfig, deps: [AppConfig], multi: true },
     AuthGuardService,
     AuthService,
-    CommunicationService
+    CommunicationService,
+    ModalCommunicationService
   ],
   bootstrap: [AppComponent]
 })

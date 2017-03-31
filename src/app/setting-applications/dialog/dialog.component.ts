@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter, trigger, state, style, animate, transition } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter, trigger, state, style, animate, transition, OnDestroy } from '@angular/core';
+import { ModalCommunicationService } from '../../base/modal-communication.service';
+
+import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
   moduleId: module.id,
@@ -22,8 +25,13 @@ export class DialogComponent implements OnInit {
   @Input() closable = true;
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor() { }
+  @Input() title:string;
+  subscriptionCancel: Subscription;
+  subscriptionSave: Subscription;
+  constructor(private modalCommunication: ModalCommunicationService) { 
+    this.subscriptionCancel = modalCommunication.btnCancel$.subscribe();
+    this.subscriptionSave = modalCommunication.btnSave$.subscribe();
+  }
 
   ngOnInit() { }
 
@@ -31,4 +39,17 @@ export class DialogComponent implements OnInit {
     this.visible = false;
     this.visibleChange.emit(this.visible);
   }
+  cancel(){
+     this.modalCommunication.btnCancel();
+  }
+
+  save(){
+    this.modalCommunication.btnSave();
+  }
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscriptionCancel.unsubscribe();
+    this.subscriptionSave.unsubscribe();
+  }
+  
 }

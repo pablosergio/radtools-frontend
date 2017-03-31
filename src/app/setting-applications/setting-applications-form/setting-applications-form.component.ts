@@ -4,6 +4,8 @@ import { SettingApplications } from '../setting-applications';
 //import { slideInDownAnimation } from '../../animations';
 import { SettingApplicationsService } from '../setting-applications.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ModalCommunicationService } from '../../base/modal-communication.service';
+
 import { Subscription }   from 'rxjs/Subscription';
 import 'rxjs/add/operator/switchMap';
 
@@ -24,12 +26,23 @@ export class SettingApplicationsFormComponent implements OnInit, OnDestroy{
   model: any = {};
   loading = false;
   error = '';
-  subscription: Subscription;
+  subscriptionUpdate: Subscription;
+  title: string = 'Setting Application';
   
-  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService){ 
-    this.subscription = service.communication.update$.subscribe(
+  constructor(private route: ActivatedRoute, private router: Router, private service: SettingApplicationsService, private modalCommunication: ModalCommunicationService){ 
+    this.subscriptionUpdate = service.communication.update$.subscribe(
       application => {
         this.application = application;
+    });
+
+    this.modalCommunication.btnCancel$.subscribe(
+      result => {
+        this.cancel();
+    });
+
+    this.modalCommunication.btnSave$.subscribe(
+      result => {
+        this.save();
     });
   }
 
@@ -57,12 +70,11 @@ export class SettingApplicationsFormComponent implements OnInit, OnDestroy{
        this.service.guardar(this.application).subscribe(
           result => this.gotoSettingApplications(),
           error =>  this.errorMessage = <any>error);;
-    }
+  }
 
-
-    ngOnDestroy() {
+  ngOnDestroy() {
     // prevent memory leak when component destroyed
-    this.subscription.unsubscribe();
+    this.subscriptionUpdate.unsubscribe();
   }
 }
 

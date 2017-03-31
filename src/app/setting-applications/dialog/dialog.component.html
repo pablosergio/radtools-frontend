@@ -1,6 +1,13 @@
 <div [@dialog] *ngIf="visible" class="dialog">
-  <ng-content></ng-content>
-  <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+  <header class="modal-header fixed modal__header">{{title}}</header>
+	<div  class="modal__content">
+  	  <ng-content></ng-content>
+  	</div>
+    <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+  <footer class="modal-footer fixed modal__footer">
+  	<button class="slds-button slds-button--neutral" (click)="cancel()">Cancel</button>
+    <button class="slds-button slds-button--brand" (click)="save()">Save</button>
+  </footer> 
 </div>
 <!--<div *ngIf="visible" class="overlay" (click)="close()"></div>-->
 <div *ngIf="visible" class="overlay"></div>

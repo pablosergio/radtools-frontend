@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
   templateUrl: './setting-applications.component.html',
 })
 export class SettingApplicationsComponent { }
-}
+

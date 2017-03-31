@@ -1,5 +1,5 @@
-<window-dialog [(visible)]="showDialog" [closable]="false">
-<form (ngSubmit)="save()">
+<window-dialog [(visible)]="showDialog" [closable]="false" [title]="title">
+<form>
 	<div class="form-group">
 		<label class="center-block">Application Name
 			<input [(ngModel)]="application.name_application" [ngModelOptions]="{standalone: true}" class="form-control">
@@ -35,9 +35,48 @@
 			<input  [(ngModel)]="application.schema" [ngModelOptions]="{standalone: true}" class="form-control">
 		</label>	
 	</div>
-	 <p>
+
+
+<div class="form-group">
+		<label class="center-block">Application Name
+			<input [(ngModel)]="application.name_application" [ngModelOptions]="{standalone: true}" class="form-control">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Application Path
+			<input  [(ngModel)]="application.path_application"  [ngModelOptions]="{standalone: true}" class="form-control">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Token Secret
+			<input  [(ngModel)]="application.token_secret" [ngModelOptions]="{standalone: true}"  type="password" class="form-control">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Host
+			<input  [(ngModel)]="application.host" [ngModelOptions]="{standalone: true}"  class="form-control">
+		</label>
+	</div>
+	<div class="form-group">
+		<label class="center-block">Port
+			<input  [(ngModel)]="application.port" [ngModelOptions]="{standalone: true}" class="form-control">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Database
+			<input  [(ngModel)]="application.database" [ngModelOptions]="{standalone: true}" class="form-control">
+		</label>	
+	</div>
+	<div class="form-group">
+		<label class="center-block">Schema
+			<input  [(ngModel)]="application.schema" [ngModelOptions]="{standalone: true}" class="form-control">
+		</label>	
+	</div>
+
+
+	 <!--<p>
       <button type="submit">Save</button>
-      <button (click)="cancel()">Cancel</button>
-    </p>
+      <button (click)="cancel()">Cancel</button> 
+    </p> -->
 </form>
 </window-dialog>

@@ -12,13 +12,14 @@ import { SettingApplicationsService } from './setting-applications.service';
 import { Ng2PaginationModule } from 'ng2-pagination'; // <-- import the module
 import { DataService } from '../base/data-service';
 import { DialogComponent } from './dialog/dialog.component';
-
+import { NglModule } from 'ng-lightning/ng-lightning';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     Ng2PaginationModule,
+    NglModule.forRoot(),
     SettingApplicationsRoutingModule
   ],
   declarations: [
